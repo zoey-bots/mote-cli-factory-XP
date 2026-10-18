@@ -1,0 +1,383 @@
+{
+  "scope": "Finite Windows offline CLI/admission reconstruction only; not MOTE model/tool runtime or general semantic equivalence",
+  "reference_sha256": "fcbaf70916a2ab065366b14cd6b6b7d39afc50a59626a41adc8b157d5a3bc92f",
+  "fixtures": {
+    "empty.yaml": "",
+    "invalid.yaml": "[",
+    "null.yaml": "null\n",
+    "array.yaml": "- one\n- two\n",
+    "unknown.yaml": "unexpected_field: true\n",
+    "other.yaml": "not_a_field: true\n"
+  },
+  "observations": [
+    {
+      "id": "regression-01",
+      "argv": [],
+      "state": "observed",
+      "exit_code": 2,
+      "stdout_b64": "",
+      "stderr_b64": "VXNhZ2U6IG1vdGUgWy0tanNvbmxdIDxtYW5pZmVzdC55YW1sPiA8dGFzaz4KICAgICAgIG1vdGUgLS12ZXJzaW9uCg==",
+      "stdout_utf8": "",
+      "stderr_utf8": "Usage: mote [--jsonl] <manifest.yaml> <task>\n       mote --version\n"
+    },
+    {
+      "id": "regression-02",
+      "argv": [
+        "--help"
+      ],
+      "state": "observed",
+      "exit_code": 0,
+      "stdout_b64": "VXNhZ2U6IG1vdGUgWy0tanNvbmxdIDxtYW5pZmVzdC55YW1sPiA8dGFzaz4KICAgICAgIG1vdGUgLS12ZXJzaW9uCg==",
+      "stderr_b64": "",
+      "stdout_utf8": "Usage: mote [--jsonl] <manifest.yaml> <task>\n       mote --version\n",
+      "stderr_utf8": ""
+    },
+    {
+      "id": "regression-03",
+      "argv": [
+        "-h"
+      ],
+      "state": "observed",
+      "exit_code": 0,
+      "stdout_b64": "VXNhZ2U6IG1vdGUgWy0tanNvbmxdIDxtYW5pZmVzdC55YW1sPiA8dGFzaz4KICAgICAgIG1vdGUgLS12ZXJzaW9uCg==",
+      "stderr_b64": "",
+      "stdout_utf8": "Usage: mote [--jsonl] <manifest.yaml> <task>\n       mote --version\n",
+      "stderr_utf8": ""
+    },
+    {
+      "id": "regression-04",
+      "argv": [
+        "--version"
+      ],
+      "state": "observed",
+      "exit_code": 0,
+      "stdout_b64": "bW90ZSAwLjEzLjEK",
+      "stderr_b64": "",
+      "stdout_utf8": "mote 0.13.1\n",
+      "stderr_utf8": ""
+    },
+    {
+      "id": "regression-05",
+      "argv": [
+        "-V"
+      ],
+      "state": "observed",
+      "exit_code": 2,
+      "stdout_b64": "",
+      "stderr_b64": "VXNhZ2U6IG1vdGUgWy0tanNvbmxdIDxtYW5pZmVzdC55YW1sPiA8dGFzaz4KICAgICAgIG1vdGUgLS12ZXJzaW9uCg==",
+      "stdout_utf8": "",
+      "stderr_utf8": "Usage: mote [--jsonl] <manifest.yaml> <task>\n       mote --version\n"
+    },
+    {
+      "id": "regression-06",
+      "argv": [
+        "--jsonl"
+      ],
+      "state": "observed",
+      "exit_code": 2,
+      "stdout_b64": "",
+      "stderr_b64": "VXNhZ2U6IG1vdGUgWy0tanNvbmxdIDxtYW5pZmVzdC55YW1sPiA8dGFzaz4KICAgICAgIG1vdGUgLS12ZXJzaW9uCg==",
+      "stdout_utf8": "",
+      "stderr_utf8": "Usage: mote [--jsonl] <manifest.yaml> <task>\n       mote --version\n"
+    },
+    {
+      "id": "regression-07",
+      "argv": [
+        "no-such-manifest.yaml"
+      ],
+      "state": "observed",
+      "exit_code": 2,
+      "stdout_b64": "",
+      "stderr_b64": "VXNhZ2U6IG1vdGUgWy0tanNvbmxdIDxtYW5pZmVzdC55YW1sPiA8dGFzaz4KICAgICAgIG1vdGUgLS12ZXJzaW9uCg==",
+      "stdout_utf8": "",
+      "stderr_utf8": "Usage: mote [--jsonl] <manifest.yaml> <task>\n       mote --version\n"
+    },
+    {
+      "id": "regression-08",
+      "argv": [
+        "no-such-manifest.yaml",
+        "hello"
+      ],
+      "state": "observed",
+      "exit_code": 2,
+      "stdout_b64": "",
+      "stderr_b64": "dW5hYmxlIHRvIHJlYWQgbWFuaWZlc3Q6IFRoZSBzeXN0ZW0gY2Fubm90IGZpbmQgdGhlIGZpbGUgc3BlY2lmaWVkLiAob3MgZXJyb3IgMikK",
+      "stdout_utf8": "",
+      "stderr_utf8": "unable to read manifest: The system cannot find the file specified. (os error 2)\n"
+    },
+    {
+      "id": "regression-09",
+      "argv": [
+        "--jsonl",
+        "no-such-manifest.yaml",
+        "hello"
+      ],
+      "state": "observed",
+      "exit_code": 2,
+      "stdout_b64": "",
+      "stderr_b64": "dW5hYmxlIHRvIHJlYWQgbWFuaWZlc3Q6IFRoZSBzeXN0ZW0gY2Fubm90IGZpbmQgdGhlIGZpbGUgc3BlY2lmaWVkLiAob3MgZXJyb3IgMikK",
+      "stdout_utf8": "",
+      "stderr_utf8": "unable to read manifest: The system cannot find the file specified. (os error 2)\n"
+    },
+    {
+      "id": "regression-10",
+      "argv": [
+        "--unexpected"
+      ],
+      "state": "observed",
+      "exit_code": 2,
+      "stdout_b64": "",
+      "stderr_b64": "VXNhZ2U6IG1vdGUgWy0tanNvbmxdIDxtYW5pZmVzdC55YW1sPiA8dGFzaz4KICAgICAgIG1vdGUgLS12ZXJzaW9uCg==",
+      "stdout_utf8": "",
+      "stderr_utf8": "Usage: mote [--jsonl] <manifest.yaml> <task>\n       mote --version\n"
+    },
+    {
+      "id": "regression-11",
+      "argv": [
+        "empty.yaml",
+        "hello"
+      ],
+      "state": "observed",
+      "exit_code": 2,
+      "stdout_b64": "",
+      "stderr_b64": "aW52YWxpZCBtYW5pZmVzdDogbWlzc2luZyBmaWVsZCBgbmFtZWAK",
+      "stdout_utf8": "",
+      "stderr_utf8": "invalid manifest: missing field `name`\n"
+    },
+    {
+      "id": "regression-12",
+      "argv": [
+        "invalid.yaml",
+        "hello"
+      ],
+      "state": "observed",
+      "exit_code": 2,
+      "stdout_b64": "",
+      "stderr_b64": "aW52YWxpZCBtYW5pZmVzdDogaW52YWxpZCB0eXBlOiBzZXF1ZW5jZSwgZXhwZWN0ZWQgc3RydWN0IE1hbmlmZXN0Cg==",
+      "stdout_utf8": "",
+      "stderr_utf8": "invalid manifest: invalid type: sequence, expected struct Manifest\n"
+    },
+    {
+      "id": "regression-13",
+      "argv": [
+        "null.yaml",
+        "hello"
+      ],
+      "state": "observed",
+      "exit_code": 2,
+      "stdout_b64": "",
+      "stderr_b64": "aW52YWxpZCBtYW5pZmVzdDogaW52YWxpZCB0eXBlOiB1bml0IHZhbHVlLCBleHBlY3RlZCBzdHJ1Y3QgTWFuaWZlc3QK",
+      "stdout_utf8": "",
+      "stderr_utf8": "invalid manifest: invalid type: unit value, expected struct Manifest\n"
+    },
+    {
+      "id": "regression-14",
+      "argv": [
+        "array.yaml",
+        "hello"
+      ],
+      "state": "observed",
+      "exit_code": 2,
+      "stdout_b64": "",
+      "stderr_b64": "aW52YWxpZCBtYW5pZmVzdDogaW52YWxpZCB0eXBlOiBzZXF1ZW5jZSwgZXhwZWN0ZWQgc3RydWN0IE1hbmlmZXN0Cg==",
+      "stdout_utf8": "",
+      "stderr_utf8": "invalid manifest: invalid type: sequence, expected struct Manifest\n"
+    },
+    {
+      "id": "regression-15",
+      "argv": [
+        "--help",
+        "extra"
+      ],
+      "state": "observed",
+      "exit_code": 0,
+      "stdout_b64": "VXNhZ2U6IG1vdGUgWy0tanNvbmxdIDxtYW5pZmVzdC55YW1sPiA8dGFzaz4KICAgICAgIG1vdGUgLS12ZXJzaW9uCg==",
+      "stderr_b64": "",
+      "stdout_utf8": "Usage: mote [--jsonl] <manifest.yaml> <task>\n       mote --version\n",
+      "stderr_utf8": ""
+    },
+    {
+      "id": "regression-16",
+      "argv": [
+        "--version",
+        "extra"
+      ],
+      "state": "observed",
+      "exit_code": 0,
+      "stdout_b64": "bW90ZSAwLjEzLjEK",
+      "stderr_b64": "",
+      "stdout_utf8": "mote 0.13.1\n",
+      "stderr_utf8": ""
+    },
+    {
+      "id": "regression-17",
+      "argv": [
+        "other.yaml",
+        "hello"
+      ],
+      "state": "observed",
+      "exit_code": 2,
+      "stdout_b64": "",
+      "stderr_b64": "aW52YWxpZCBtYW5pZmVzdDogdW5rbm93biBmaWVsZCBgbm90X2FfZmllbGRgLCBleHBlY3RlZCBvbmUgb2YgYG5hbWVgLCBgd29ya3NwYWNlYCwgYGNhcGFiaWxpdGllc2AsIGBtYXhfaXRlcmF0aW9uc2AsIGBtYXhfcGVyX3Rvb2xgLCBgbWF4X3J1bnRpbWVfc2Vjb25kc2AsIGBjb21tYW5kX3RpbWVvdXRfc2Vjb25kc2AsIGBtYXhfb3V0cHV0X2J5dGVzYCwgYHNoZWxsYCwgYG91dHB1dF9maWxlYCwgYG1vZGVsc2AsIGBkZWNpc2lvbmAK",
+      "stdout_utf8": "",
+      "stderr_utf8": "invalid manifest: unknown field `not_a_field`, expected one of `name`, `workspace`, `capabilities`, `max_iterations`, `max_per_tool`, `max_runtime_seconds`, `command_timeout_seconds`, `max_output_bytes`, `shell`, `output_file`, `models`, `decision`\n"
+    },
+    {
+      "id": "regression-18",
+      "argv": [
+        "--jsonl",
+        "--help"
+      ],
+      "state": "observed",
+      "exit_code": 0,
+      "stdout_b64": "VXNhZ2U6IG1vdGUgWy0tanNvbmxdIDxtYW5pZmVzdC55YW1sPiA8dGFzaz4KICAgICAgIG1vdGUgLS12ZXJzaW9uCg==",
+      "stderr_b64": "",
+      "stdout_utf8": "Usage: mote [--jsonl] <manifest.yaml> <task>\n       mote --version\n",
+      "stderr_utf8": ""
+    },
+    {
+      "id": "regression-19",
+      "argv": [
+        "--jsonl",
+        "--version"
+      ],
+      "state": "observed",
+      "exit_code": 0,
+      "stdout_b64": "bW90ZSAwLjEzLjEK",
+      "stderr_b64": "",
+      "stdout_utf8": "mote 0.13.1\n",
+      "stderr_utf8": ""
+    },
+    {
+      "id": "regression-20",
+      "argv": [
+        "--help",
+        "--version"
+      ],
+      "state": "observed",
+      "exit_code": 0,
+      "stdout_b64": "VXNhZ2U6IG1vdGUgWy0tanNvbmxdIDxtYW5pZmVzdC55YW1sPiA8dGFzaz4KICAgICAgIG1vdGUgLS12ZXJzaW9uCg==",
+      "stderr_b64": "",
+      "stdout_utf8": "Usage: mote [--jsonl] <manifest.yaml> <task>\n       mote --version\n",
+      "stderr_utf8": ""
+    },
+    {
+      "id": "regression-21",
+      "argv": [
+        "--version",
+        "--help"
+      ],
+      "state": "observed",
+      "exit_code": 0,
+      "stdout_b64": "bW90ZSAwLjEzLjEK",
+      "stderr_b64": "",
+      "stdout_utf8": "mote 0.13.1\n",
+      "stderr_utf8": ""
+    },
+    {
+      "id": "regression-22",
+      "argv": [
+        "-h",
+        "empty.yaml"
+      ],
+      "state": "observed",
+      "exit_code": 0,
+      "stdout_b64": "VXNhZ2U6IG1vdGUgWy0tanNvbmxdIDxtYW5pZmVzdC55YW1sPiA8dGFzaz4KICAgICAgIG1vdGUgLS12ZXJzaW9uCg==",
+      "stderr_b64": "",
+      "stdout_utf8": "Usage: mote [--jsonl] <manifest.yaml> <task>\n       mote --version\n",
+      "stderr_utf8": ""
+    },
+    {
+      "id": "regression-23",
+      "argv": [
+        "no-such-manifest.yaml",
+        "hello",
+        "extra"
+      ],
+      "state": "observed",
+      "exit_code": 2,
+      "stdout_b64": "",
+      "stderr_b64": "dW5hYmxlIHRvIHJlYWQgbWFuaWZlc3Q6IFRoZSBzeXN0ZW0gY2Fubm90IGZpbmQgdGhlIGZpbGUgc3BlY2lmaWVkLiAob3MgZXJyb3IgMikK",
+      "stdout_utf8": "",
+      "stderr_utf8": "unable to read manifest: The system cannot find the file specified. (os error 2)\n"
+    },
+    {
+      "id": "regression-24",
+      "argv": [
+        "empty.yaml"
+      ],
+      "state": "observed",
+      "exit_code": 2,
+      "stdout_b64": "",
+      "stderr_b64": "VXNhZ2U6IG1vdGUgWy0tanNvbmxdIDxtYW5pZmVzdC55YW1sPiA8dGFzaz4KICAgICAgIG1vdGUgLS12ZXJzaW9uCg==",
+      "stdout_utf8": "",
+      "stderr_utf8": "Usage: mote [--jsonl] <manifest.yaml> <task>\n       mote --version\n"
+    },
+    {
+      "id": "regression-25",
+      "argv": [
+        "unknown.yaml",
+        "hello"
+      ],
+      "state": "observed",
+      "exit_code": 2,
+      "stdout_b64": "",
+      "stderr_b64": "aW52YWxpZCBtYW5pZmVzdDogdW5rbm93biBmaWVsZCBgdW5leHBlY3RlZF9maWVsZGAsIGV4cGVjdGVkIG9uZSBvZiBgbmFtZWAsIGB3b3Jrc3BhY2VgLCBgY2FwYWJpbGl0aWVzYCwgYG1heF9pdGVyYXRpb25zYCwgYG1heF9wZXJfdG9vbGAsIGBtYXhfcnVudGltZV9zZWNvbmRzYCwgYGNvbW1hbmRfdGltZW91dF9zZWNvbmRzYCwgYG1heF9vdXRwdXRfYnl0ZXNgLCBgc2hlbGxgLCBgb3V0cHV0X2ZpbGVgLCBgbW9kZWxzYCwgYGRlY2lzaW9uYAo=",
+      "stdout_utf8": "",
+      "stderr_utf8": "invalid manifest: unknown field `unexpected_field`, expected one of `name`, `workspace`, `capabilities`, `max_iterations`, `max_per_tool`, `max_runtime_seconds`, `command_timeout_seconds`, `max_output_bytes`, `shell`, `output_file`, `models`, `decision`\n"
+    },
+    {
+      "id": "regression-26",
+      "argv": [
+        "--jsonl",
+        "invalid.yaml",
+        "hello"
+      ],
+      "state": "observed",
+      "exit_code": 2,
+      "stdout_b64": "",
+      "stderr_b64": "aW52YWxpZCBtYW5pZmVzdDogaW52YWxpZCB0eXBlOiBzZXF1ZW5jZSwgZXhwZWN0ZWQgc3RydWN0IE1hbmlmZXN0Cg==",
+      "stdout_utf8": "",
+      "stderr_utf8": "invalid manifest: invalid type: sequence, expected struct Manifest\n"
+    },
+    {
+      "id": "regression-27",
+      "argv": [
+        "--unexpected",
+        "hello"
+      ],
+      "state": "observed",
+      "exit_code": 2,
+      "stdout_b64": "",
+      "stderr_b64": "dW5hYmxlIHRvIHJlYWQgbWFuaWZlc3Q6IFRoZSBzeXN0ZW0gY2Fubm90IGZpbmQgdGhlIGZpbGUgc3BlY2lmaWVkLiAob3MgZXJyb3IgMikK",
+      "stdout_utf8": "",
+      "stderr_utf8": "unable to read manifest: The system cannot find the file specified. (os error 2)\n"
+    },
+    {
+      "id": "regression-28",
+      "argv": [
+        "--jsonl",
+        "--jsonl"
+      ],
+      "state": "observed",
+      "exit_code": 2,
+      "stdout_b64": "",
+      "stderr_b64": "VXNhZ2U6IG1vdGUgWy0tanNvbmxdIDxtYW5pZmVzdC55YW1sPiA8dGFzaz4KICAgICAgIG1vdGUgLS12ZXJzaW9uCg==",
+      "stdout_utf8": "",
+      "stderr_utf8": "Usage: mote [--jsonl] <manifest.yaml> <task>\n       mote --version\n"
+    },
+    {
+      "id": "regression-29",
+      "argv": [
+        "--version",
+        "--jsonl"
+      ],
+      "state": "observed",
+      "exit_code": 0,
+      "stdout_b64": "bW90ZSAwLjEzLjEK",
+      "stderr_b64": "",
+      "stdout_utf8": "mote 0.13.1\n",
+      "stderr_utf8": ""
+    }
+  ]
+}

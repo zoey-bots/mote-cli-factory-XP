@@ -1,0 +1,61 @@
+{
+  "recorded_at": "2026-10-18T07:49:47.408332+03:00",
+  "scope": "Finite Windows offline CLI/admission reconstruction only; not MOTE model/tool runtime or general semantic equivalence",
+  "orchestrator": "Ghost Factory",
+  "worker": "OpenCode",
+  "model": "opencode/deepseek-v4.1-flash-free",
+  "accepted_commit": "626351e61dc80b49d3dc531b485f71ef70509213",
+  "reference_sha256": "fcbaf70916a2ab065366b14cd6b6b7d39afc50a59626a41adc8b157d5a3bc92f",
+  "original_MOTE_source_provided": false,
+  "tool_boundary": "Observed tool calls checked; not OS-enforced source isolation or attestation",
+  "languages": {
+    "rust": {
+      "units": {
+        "passed": 24,
+        "kind": "native Rust tests",
+        "failed": 0,
+        "ignored": 0
+      },
+      "comparisons": {
+        "public": {
+          "passed": 29,
+          "total": 29
+        },
+        "heldout": {
+          "passed": 16,
+          "total": 16
+        }
+      }
+    },
+    "go": {
+      "units": {
+        "top_level_tests": 5,
+        "subtests": 26,
+        "named_pass_events": 31,
+        "failed": 0,
+        "skipped": 0
+      },
+      "comparisons": {
+        "public": {
+          "passed": 29,
+          "total": 29
+        },
+        "heldout": {
+          "passed": 16,
+          "total": 16
+        }
+      }
+    }
+  },
+  "accepted_source_file_sha256": {
+    "rust/Cargo.toml": "379d2b21cd92f8f6260cb6cc98a0a02cadbac96fe23c9a7ce17284da806327f0",
+    "rust/README.md": "2c94aca045d459368e4d2bcb2fe2eebe4e309cdb680923c7951262cbf0c4af1d",
+    "rust/src/main.rs": "175aeec0287355ea28d83b7cc2ba7fd6b7c2474214bfdee88e412bb148443cd9",
+    "go/go.mod": "25749872bb818a513c2955f2ee1c3961136f50e84e032a4d98df221a480cd227",
+    "go/main.go": "f94a11f1ba0f50ed8346b397b43209c1def7ca2ac1fca8ee1d17ff93bbd1c00b",
+    "go/main_test.go": "2f66349237edeb565a87e0dd5254b0ccc17f7b042a91deab536ad0308d2f47de",
+    "go/README.md": "d9f412e7693ba567216b68baf8f62f6bd1a47c4285bc71a430c3e437d9a7d354"
+  },
+  "private_evaluation": "Protected inputs and raw private logs are not published; totals are recorded operator verification, not independently reproducible from this checkout.",
+  "publication_worker": "Task-specific deterministic worker dispatched by Ghost Factory; not a coding model or generic unattended publishing integration."
+}
